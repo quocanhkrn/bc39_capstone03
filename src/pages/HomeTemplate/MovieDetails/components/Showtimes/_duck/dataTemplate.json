@@ -1,0 +1,23 @@
+[
+  {
+    "maHeThongRap": "",
+    "tenHeThongRap": "",
+    "cumRapChieu": [
+      {
+        "maCumRap": "",
+        "tenCumRap": "",
+        "lichChieuPhim": [
+          {
+            "ngayChieu": "",
+            "lichChieu": [
+              {
+                "maLichChieu": "",
+                "gioChieu": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

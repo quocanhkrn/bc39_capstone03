@@ -1,0 +1,112 @@
+main.container {
+  padding-top: 92px;
+}
+
+.schedule {
+  height: 500px;
+
+  background-color: black
+}
+
+.schedule *::-webkit-scrollbar {
+  display: none;
+}
+
+.schedule .theatre-nav {
+  display: none;
+}
+
+.schedule .nav-link img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  object-position: center;
+}
+
+.schedule .nav-link {
+  border-radius: 0;
+}
+
+.schedule .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.schedule .theatre-nav .nav-link {
+  border-right: 3px solid transparent;
+}
+
+.schedule .theatre-nav .nav-link.active {
+  border-right: 3px solid rgb(var(--primary-color));
+}
+
+.schedule .showtimes-nav .nav-link p {
+  margin: 0;
+
+  color: white;
+}
+
+.schedule .showtimes-nav .nav-link {
+  border-right: none !important;
+  border-bottom: 3px solid transparent;
+}
+
+.schedule .showtimes-nav .nav-link.active {
+  border-bottom: 3px solid rgb(var(--primary-color));
+}
+
+.schedule .date-showtimes img {
+  width: 80px;
+
+  object-fit: contain;
+  object-position: top;
+}
+
+.schedule .date-showtimes button {
+  border: 2px solid rgb(var(--primary-color));
+
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(var(--primary-color));
+}
+
+.schedule .date-showtimes button:hover {
+  background-color: rgb(var(--primary-color));
+
+  color: white;
+}
+
+.schedule .date-showtimes .showtimes {
+  gap: 5px;
+}
+
+.schedule .theatre-nav--mobile button.nav-link {
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+.schedule .theatre-nav--mobile button.nav-link.active {
+  border-bottom: 3px solid rgb(var(--primary-color));
+}
+
+.schedule .theatre-nav--mobile button.nav-link img {
+  width: 80px;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  object-position: center;
+}
+
+.schedule .showtimes-nav--mobile button.nav-link p {
+  margin: 0;
+
+  color: white;
+}
+
+@media screen and (min-width:768px) {
+  .schedule .theatre-nav {
+    display: flex;
+  }
+
+  .schedule .theatre-nav--mobile {
+    display: none;
+  }
+}

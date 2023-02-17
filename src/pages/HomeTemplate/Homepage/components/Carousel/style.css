@@ -1,0 +1,11 @@
+section.carousel {
+  padding-top: 92px;
+}
+
+section.carousel img {
+  width: 100%;
+}
+
+section.carousel :is(.swiper-button-prev, .swiper-button-next)::after {
+  color: rgb(var(--primary-color));
+}

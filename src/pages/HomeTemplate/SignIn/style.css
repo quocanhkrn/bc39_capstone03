@@ -1,0 +1,22 @@
+.sign-in-form {
+  width: 100vw;
+  height: 100vh;
+}
+
+.sign-in-form .form-control:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.sign-in-form h1 {
+  font-family: 'Anton', sans-serif;
+}
+
+.sign-in-form a {
+  text-decoration: underline;
+}
+
+.sign-in-form a:hover {
+  color: rgb(var(--primary-color));
+}

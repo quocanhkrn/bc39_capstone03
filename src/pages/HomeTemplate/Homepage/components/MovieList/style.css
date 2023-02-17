@@ -1,0 +1,25 @@
+.movie-list .nav-pills {
+  font-family: "Anton", sans-serif;
+  font-size: 1.2rem;
+}
+
+.movie-list .nav-pills button {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.movie-list .nav-pills button.active {
+  background-color: rgb(var(--primary-color));
+  border-radius: 100px;
+}
+
+:is(.now-showing-list, .coming-soon-list) .movie img {
+  width: 100%;
+
+  aspect-ratio: 1/1.5;
+  object-fit: cover;
+  object-position: top;
+}
+
+:is(.now-showing-list, .coming-soon-list) .movie .title p {
+  line-height: 1;
+}

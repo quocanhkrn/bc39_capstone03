@@ -1,0 +1,22 @@
+.sign-up-form {
+  width: 100vw;
+  height: 100vh;
+}
+
+.sign-up-form .form-control:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.sign-up-form h1 {
+  font-family: 'Anton', sans-serif;
+}
+
+.sign-up-form a {
+  text-decoration: underline;
+}
+
+.sign-up-form a:hover {
+  color: rgb(var(--primary-color));
+}

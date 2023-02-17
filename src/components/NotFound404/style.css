@@ -1,0 +1,18 @@
+.not-found-404-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.not-found-404-page img {
+  height: 50%;
+
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  object-position: center;
+}

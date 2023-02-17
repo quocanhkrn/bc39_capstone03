@@ -1,0 +1,10 @@
+.showtimes select {
+  height: 40px;
+
+  background-color: rgb(var(--primary-color));
+  border: none;
+  border-radius: 5px;
+  outline: none;
+
+  color: white;
+}

@@ -1,0 +1,33 @@
+.movie-info__poster img {
+  width: 100%;
+
+  aspect-ratio: 1/1.5;
+  object-fit: cover;
+  object-position: center;
+}
+
+.movie-info__description .title {
+  font-family: "Anton", sans-serif
+}
+
+.movie-info__description .overview {
+  line-height: 1.3
+}
+
+.movie-info .now-showing-gif {
+  width: 15px;
+
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  object-position: center;
+}
+
+.movie-info__description .trailer-btn {
+  background-color: #cf0a0a;
+  color: #fff
+}
+
+.movie-info__description .trailer-btn:is(:hover, :focus-visible, :active, :focus) {
+  background-color: #9e0808 !important;
+  box-shadow: none;
+}

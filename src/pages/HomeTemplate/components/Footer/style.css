@@ -1,0 +1,33 @@
+footer {
+  padding: 4rem 0;
+  background-color: rgba(255, 255, 255, 0.1)
+}
+
+footer p,
+footer li {
+  margin: 0;
+
+  line-height: 1.5
+}
+
+footer a:hover {
+  color: rgb(var(--primary-color))
+}
+
+footer .about h4 {
+  font-family: "Anton", sans-serif
+}
+
+footer .about h4 span:first-of-type {
+  color: rgb(var(--primary-color))
+}
+
+footer .about i {
+  width: 25px;
+  text-align: center
+}
+
+footer .follow__links {
+  gap: .5rem;
+  font-size: 1.5rem
+}
