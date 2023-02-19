@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { movieShowtimesFetchData } from "./_duck/actions";
 import "./style.css";
 import { useState } from "react";
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Showtimes(props) {
@@ -68,7 +67,11 @@ function Showtimes(props) {
     } else {
       return (
         <div className="col px-0 py-1 px-md-1 py-md-0 mt-md-2">
-          <button className="btn btn-warning w-100" disabled={true}>
+          <button
+            className="btn btn-warning w-100"
+            onClick={() => {
+              navigate(`/signin`);
+            }}>
             ĐĂNG NHẬP ĐỂ ĐẶT VÉ
           </button>
         </div>
@@ -85,14 +88,13 @@ function Showtimes(props) {
   if (loading) {
     return <Loader />;
   } else {
-    console.log(heThongRapChieu);
     if (heThongRapChieu && heThongRapChieu.length !== 0) {
       return (
         <>
           <section className="showtimes mx-auto mt-5 row no-gutters">
             <div className="col-12 col-md-3 px-0 py-1 px-md-1 py-md-0">
               <select className="w-100" name="heThongRap" onChange={handleOnChange}>
-                <option value="">Chọn cụm rạp</option>
+                <option value="">Chọn hệ thống rạp</option>
                 {heThongRapChieu.map((heThong) => {
                   const { maHeThongRap, tenHeThongRap } = heThong;
                   return (

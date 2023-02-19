@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import HomeCarouselReducer from "pages/HomeTemplate/Homepage/components/Carousel/_duck/reducer";
+import HomeShowtimesReducer from "pages/HomeTemplate/Homepage/components/Showtimes/_duck/reducer";
 import HomeMovieListReducer from "pages/HomeTemplate/Homepage/components/MovieList/_duck/reducer";
 import HomeMovieInfoReducer from "pages/HomeTemplate/MovieDetails/components/MovieInfo/_duck/reducer";
 import HomeLogInReducer from "pages/HomeTemplate/SignIn/_duck/reducer";
@@ -8,6 +9,7 @@ import MovieShowtimesReducer from "pages/HomeTemplate/MovieDetails/components/Sh
 
 const RootReducer = combineReducers({
   HomeCarouselReducer,
+  HomeShowtimesReducer,
   HomeMovieListReducer,
   HomeMovieInfoReducer,
   HomeLogInReducer,

@@ -1,18 +1,24 @@
 [
   {
-    "maHeThongRap": "",
-    "tenHeThongRap": "",
-    "cumRapChieu": [
+    "maPhim": "",
+    "tenPhim": "",
+    "heThongRap": [
       {
-        "maCumRap": "",
-        "tenCumRap": "",
-        "lichChieuPhim": [
+        "maHeThongRap": "",
+        "tenHeThongRap": "",
+        "cumRapChieu": [
           {
-            "ngayChieu": "",
-            "lichChieu": [
+            "maCumRap": "",
+            "tenCumRap": "",
+            "lichChieuPhim": [
               {
-                "maLichChieu": "",
-                "gioChieu": ""
+                "ngayChieu": "",
+                "lichChieu": [
+                  {
+                    "maLichChieu": "",
+                    "gioChieu": ""
+                  }
+                ]
               }
             ]
           }
