@@ -11,6 +11,7 @@ const routes = [
       { path: "/", element: lazy(() => import("pages/HomeTemplate/Homepage")) },
       { path: "details/:id", element: lazy(() => import("pages/HomeTemplate/MovieDetails")) },
       { path: "reservation/:id", element: lazy(() => import("pages/HomeTemplate/TicketBooking")) },
+      { path: "reservationCompleted", element: lazy(() => import("pages/HomeTemplate/BookingSuccess")) },
     ],
   },
   {

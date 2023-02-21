@@ -110,7 +110,7 @@ function Showtimes() {
     return <Loader />;
   } else {
     return (
-      <section className="showtimes container row no-gutters mx-auto mt-4">
+      <section className="showtimes container row no-gutters mx-auto mt-4" id="showtimes">
         <div className="col-12 col-md-4 px-0 py-1 px-md-1 py-md-1">
           <select className="w-100" name="phim" onChange={handleOnChange}>
             <option value="">Chọn phim</option>

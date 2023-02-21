@@ -3,6 +3,8 @@ import HomeCarouselReducer from "pages/HomeTemplate/Homepage/components/Carousel
 import HomeShowtimesReducer from "pages/HomeTemplate/Homepage/components/Showtimes/_duck/reducer";
 import HomeMovieListReducer from "pages/HomeTemplate/Homepage/components/MovieList/_duck/reducer";
 import HomeMovieInfoReducer from "pages/HomeTemplate/MovieDetails/components/MovieInfo/_duck/reducer";
+import TicketBookingReducer from "pages/HomeTemplate/TicketBooking/_duck/reducer";
+import SeatingReservationReducer from "pages/HomeTemplate/TicketBooking/components/Seats/_duck/reducer";
 import HomeLogInReducer from "pages/HomeTemplate/SignIn/_duck/reducer";
 import HomeSignUpReducer from "pages/HomeTemplate/SignUp/_duck/reducer";
 import MovieShowtimesReducer from "pages/HomeTemplate/MovieDetails/components/Showtimes/_duck/reducer";
@@ -12,6 +14,8 @@ const RootReducer = combineReducers({
   HomeShowtimesReducer,
   HomeMovieListReducer,
   HomeMovieInfoReducer,
+  TicketBookingReducer,
+  SeatingReservationReducer,
   HomeLogInReducer,
   HomeSignUpReducer,
   MovieShowtimesReducer,

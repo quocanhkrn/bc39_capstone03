@@ -1,0 +1,76 @@
+.reservation-details table {
+  border-collapse: separate;
+  border-spacing: 20px;
+  border-radius: 15px;
+
+  white-space: nowrap;
+}
+
+.reservation-details thead {
+  color: rgb(var(--primary-color));
+}
+
+.reservation-details tbody tr:nth-last-of-type(2) {
+  font-weight: bold;
+  color: rgb(var(--primary-color));
+}
+
+.reservation-details tbody tr:nth-last-of-type(2) td:last-child {
+  font-size: 1.3rem;
+}
+
+.reservation-details tbody tr:not(:last-of-type) button {
+  color: rgb(var(--primary-color));
+}
+
+.reservation-details tbody tr:not(:last-of-type) button:hover {
+  color: black;
+}
+
+.seating-plan {
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.seating-plan .screen {
+  background-color: rgb(var(--primary-color));
+
+  font-weight: bolder;
+}
+
+.seating-plan table {
+  border-collapse: separate;
+  border-spacing: 8px;
+}
+
+.seating-plan table button {
+  --edge: 40px;
+  width: var(--edge);
+  height: var(--edge);
+
+  background-color: rgb(var(--primary-color));
+
+  font-family: 'Anton', sans-serif;
+  color: white;
+}
+
+.seating-plan table button.seat:not(.unavailable):hover {
+  transform: scale(1.1);
+}
+
+.seating-plan table button.vip {
+  background-color: blueviolet;
+}
+
+.seating-plan table button.unavailable {
+  background-color: gray;
+}
+
+.seating-plan table button.choosing {
+  background-color: cornflowerblue;
+  border: 2px solid white;
+}
+
+.seating-plan table button.guide {
+  cursor: default;
+}
