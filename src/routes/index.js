@@ -27,8 +27,13 @@ const routes = [
   {
     path: "admin",
     element: lazy(() => import("pages/AdminTemplate")),
-    nestedElements: [],
+    nestedElements: [
+      { path: "", element: lazy(() => import("pages/AdminTemplate/Movies")) },
+      { path: "movies", element: lazy(() => import("pages/AdminTemplate/Movies")) },
+      { path: "users", element: lazy(() => import("pages/AdminTemplate/Users")) },
+    ],
   },
+  { path: "admin/signin", element: lazy(() => import("pages/AdminTemplate/SignIn")) },
 ];
 
 const renderRoutes = () => {

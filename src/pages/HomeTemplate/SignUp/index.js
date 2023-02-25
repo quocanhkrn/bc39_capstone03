@@ -33,7 +33,7 @@ function SignUp() {
 
   return (
     <div className="sign-up-form d-flex justify-content-center align-items-center">
-      <form className="w-25" onSubmit={handleOnSubmit}>
+      <form className="container" onSubmit={handleOnSubmit}>
         <h1 className="mb-4 text-center">Create new account</h1>
         <div className={error ? "alert alert-danger" : ""} role="alert">
           {error}

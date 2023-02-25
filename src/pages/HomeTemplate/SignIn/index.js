@@ -33,7 +33,7 @@ function SignIn() {
   return (
     <>
       <div className="sign-in-form d-flex justify-content-center align-items-center">
-        <form className="w-25" onSubmit={handleOnSubmit}>
+        <form className="container" onSubmit={handleOnSubmit}>
           <h1 className="mb-4 text-center">Welcome back!</h1>
           <div className={error ? "alert alert-danger" : ""} role="alert">
             {error}

@@ -8,6 +8,8 @@ import SeatingReservationReducer from "pages/HomeTemplate/TicketBooking/componen
 import HomeLogInReducer from "pages/HomeTemplate/SignIn/_duck/reducer";
 import HomeSignUpReducer from "pages/HomeTemplate/SignUp/_duck/reducer";
 import MovieShowtimesReducer from "pages/HomeTemplate/MovieDetails/components/Showtimes/_duck/reducer";
+import AdminSignInReducer from "pages/AdminTemplate/SignIn/_duck/reducer";
+import { AdminMovieListReducer } from "pages/AdminTemplate/Movies/_duck/reducer";
 
 const RootReducer = combineReducers({
   HomeCarouselReducer,
@@ -19,6 +21,8 @@ const RootReducer = combineReducers({
   HomeLogInReducer,
   HomeSignUpReducer,
   MovieShowtimesReducer,
+  AdminSignInReducer,
+  AdminMovieListReducer,
 });
 
 export default RootReducer;

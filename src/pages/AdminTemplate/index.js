@@ -1,13 +1,18 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import NavBar from "./components/Navbar";
 
 function AdminTemplate() {
-  return (
-    <>
-      <div>Admin</div>
-      <Outlet />
-    </>
-  );
+  if (!localStorage.getItem("admin-account")) {
+    return <Navigate to={"signin"} replace={true} />;
+  } else {
+    return (
+      <>
+        <NavBar />
+        <Outlet />
+      </>
+    );
+  }
 }
 
 export default AdminTemplate;
