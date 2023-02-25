@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --primary-color: 186, 24, 27;
+  --secondary-background-color: 22, 26, 29;
+}
+
+body {
+  background-color: rgb(var(--secondary-background-color));
+}
+
 .sign-in-form {
   width: 100vw;
   height: 100vh;
+  color: white;
 }
 
 .sign-in-form .form-control:focus {

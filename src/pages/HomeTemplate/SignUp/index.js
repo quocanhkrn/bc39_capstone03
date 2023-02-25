@@ -29,6 +29,8 @@ function SignUp() {
     dispatch(signUpSendRequest(navigate, user));
   };
 
+  document.title = "ĐĂNG KÝ | CYBERCINEMA";
+
   return (
     <div className="sign-up-form d-flex justify-content-center align-items-center">
       <form className="w-25" onSubmit={handleOnSubmit}>
