@@ -9,7 +9,7 @@ export const ticketBookingFetchData = (maLichChieu) => {
       .then((result) => {
         dispatch(actTicketBookingSuccess(result.data.content));
       })
-      .catch();
+      .catch((error) => dispatch(actTicketBookingFail(error)));
   };
 };
 

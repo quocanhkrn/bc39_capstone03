@@ -10,7 +10,7 @@ export const reservationSendRequest = (navigate, thongTinVe) => {
         dispatch(actReservationSuccess(result.data.content));
         navigate("/reservationCompleted");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => dispatch(actReservationFail(error)));
   };
 };
 

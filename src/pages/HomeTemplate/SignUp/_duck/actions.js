@@ -11,7 +11,7 @@ export const signUpSendRequest = (navigate, user) => {
         navigate("/", { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        dispatch(actSignUpFail(error));
       });
   };
 };
