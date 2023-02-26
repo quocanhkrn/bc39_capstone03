@@ -11,7 +11,9 @@ api.interceptors.request.use((config) => {
   config.headers = {
     ...config.headers,
     TokenCybersoft: TOKEN_CYBERSOFT,
-    Authorization: localStorage.getItem("guest-account") ? `Bearer ${JSON.parse(localStorage.getItem("guest-account")).accessToken}` : "",
+    Authorization: localStorage.getItem("admin-account")
+      ? `Bearer ${JSON.parse(localStorage.getItem("admin-account")).accessToken}`
+      : `Bearer ${JSON.parse(localStorage.getItem("guest-account")).accessToken}`,
   };
   return config;
 });

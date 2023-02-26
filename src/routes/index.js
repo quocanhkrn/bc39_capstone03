@@ -28,11 +28,12 @@ const routes = [
     path: "admin",
     element: lazy(() => import("pages/AdminTemplate")),
     nestedElements: [
-      { path: "", element: lazy(() => import("pages/AdminTemplate/Movies")) },
       { path: "movies", element: lazy(() => import("pages/AdminTemplate/Movies")) },
       { path: "movies/new", element: lazy(() => import("pages/AdminTemplate/MovieForm")) },
       { path: "movies/edit/:id", element: lazy(() => import("pages/AdminTemplate/MovieForm")) },
       { path: "users", element: lazy(() => import("pages/AdminTemplate/Users")) },
+      { path: "users/new", element: lazy(() => import("pages/AdminTemplate/UserForm")) },
+      { path: "users/edit/:username", element: lazy(() => import("pages/AdminTemplate/UserForm")) },
     ],
   },
   { path: "admin/signin", element: lazy(() => import("pages/AdminTemplate/SignIn")) },

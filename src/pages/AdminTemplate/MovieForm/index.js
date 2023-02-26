@@ -26,31 +26,34 @@ const MovieForm = () => {
 
   useEffect(() => {
     if (movieId) {
-      document.title = "UPDATE MOVIE | CYBERCINEMA";
-      submitBtn.current = (
-        <button className="btn btn-warning w-100" type="submit">
-          <i className="fa-solid fa-pen-to-square mr-2" />
-          UPDATE
-        </button>
-      );
       dispatch(getMovieInfoRequest(movieId));
-    } else {
-      document.title = "NEW MOVIE | CYBERCINEMA";
-      submitBtn.current = (
-        <button className="btn btn-warning w-100" type="submit">
-          <i className="fa-solid fa-plus mr-2" />
-          ADD
-        </button>
-      );
     }
   }, []);
 
   useEffect(() => {
-    if (data) {
+    if (movieId && data) {
       const { maPhim, tenPhim, moTa, trailer, ngayKhoiChieu, sapChieu, dangChieu, hot, danhGia, hinhAnh } = data;
       setMovie({ maPhim, tenPhim, moTa, trailer, ngayKhoiChieu, sapChieu, dangChieu, hot, danhGia, hinhAnh, hinhAnhBlob: null });
     }
   }, [data]);
+
+  if (movieId) {
+    document.title = "UPDATE MOVIE | CYBERCINEMA";
+    submitBtn.current = (
+      <button className="btn btn-warning w-100" type="submit">
+        <i className="fa-solid fa-pen-to-square mr-2" />
+        UPDATE
+      </button>
+    );
+  } else {
+    document.title = "NEW MOVIE | CYBERCINEMA";
+    submitBtn.current = (
+      <button className="btn btn-warning w-100" type="submit">
+        <i className="fa-solid fa-plus mr-2" />
+        ADD
+      </button>
+    );
+  }
 
   const handleOnChange = (e) => {
     const { name } = e.target;
@@ -89,7 +92,6 @@ const MovieForm = () => {
       </section>
     );
   } else {
-    console.log(movie);
     return (
       <section className="container mt-5 pt-3">
         <h2>{movieId ? "UPDATE" : "ADD NEW MOVIE"}</h2>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMoviesRequest } from "./_duck/actions";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import api from "utils/apiUtil";
 
 const TruncatedParagraph = styled.p`
   width: 30vw;
@@ -26,6 +27,15 @@ const Movies = () => {
   useEffect(() => {
     dispatch(getMoviesRequest());
   }, []);
+
+  const handleDeleteMovie = (movieId) => {
+    if (window.confirm("Are you sure?")) {
+      api
+        .delete(`QuanLyPhim/XoaPhim?MaPhim=${movieId}`)
+        .then((result) => dispatch(getMoviesRequest()))
+        .catch((error) => console.log(error));
+    }
+  };
 
   document.title = "MOVIES MANAGEMENT | CYBERCINEMA";
 
@@ -76,7 +86,11 @@ const Movies = () => {
                       <Button className="text-warning mx-2">
                         <i className="fa-solid fa-calendar-days" />
                       </Button>
-                      <Button className="text-danger">
+                      <Button
+                        className="text-danger"
+                        onClick={() => {
+                          handleDeleteMovie(movie.maPhim);
+                        }}>
                         <i className="fa-solid fa-trash" />
                       </Button>
                     </td>
