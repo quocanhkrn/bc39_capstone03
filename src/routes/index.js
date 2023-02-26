@@ -30,6 +30,8 @@ const routes = [
     nestedElements: [
       { path: "", element: lazy(() => import("pages/AdminTemplate/Movies")) },
       { path: "movies", element: lazy(() => import("pages/AdminTemplate/Movies")) },
+      { path: "movies/new", element: lazy(() => import("pages/AdminTemplate/MovieForm")) },
+      { path: "movies/edit/:id", element: lazy(() => import("pages/AdminTemplate/MovieForm")) },
       { path: "users", element: lazy(() => import("pages/AdminTemplate/Users")) },
     ],
   },
