@@ -55,6 +55,7 @@ const Users = () => {
             <thead>
               <tr>
                 <th scope="col">Username</th>
+                <th scope="col">Fullname</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Group</th>
@@ -66,6 +67,7 @@ const Users = () => {
                 return (
                   <tr key={user.taiKhoan} className="align-middle" scope="row">
                     <td>{user.taiKhoan}</td>
+                    <td>{user.hoTen}</td>
                     <td>{user.email}</td>
                     <td>{user.soDT}</td>
                     <td>{user.maLoaiNguoiDung}</td>

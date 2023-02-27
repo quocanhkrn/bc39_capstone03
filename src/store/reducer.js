@@ -12,6 +12,7 @@ import AdminSignInReducer from "pages/AdminTemplate/SignIn/_duck/reducer";
 import { AdminMovieListReducer } from "pages/AdminTemplate/Movies/_duck/reducer";
 import { AdminGetMovieInfoReducer } from "pages/AdminTemplate/MovieForm/_duck/reducer";
 import AdminUserListReducer from "pages/AdminTemplate/Users/_duck/reducer";
+import AdminUserReducer from "pages/AdminTemplate/UserForm/_duck/reducer";
 
 const RootReducer = combineReducers({
   HomeCarouselReducer,
@@ -27,6 +28,7 @@ const RootReducer = combineReducers({
   AdminMovieListReducer,
   AdminGetMovieInfoReducer,
   AdminUserListReducer,
+  AdminUserReducer,
 });
 
 export default RootReducer;
