@@ -7,6 +7,7 @@ export const SignInRequest = (navigate, user) => {
     api
       .post("QuanLyNguoiDung/DangNhap", user)
       .then((result) => {
+        console.log(result);
         const user = result.data.content;
         if (user.maLoaiNguoiDung === "KhachHang") {
           return Promise.reject({

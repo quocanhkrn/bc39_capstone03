@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -16,12 +16,31 @@ const Users = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, data, error } = useSelector((state) => state.AdminUserListReducer);
+  const [userList, setUserList] = useState(null);
 
   document.title = "USER MANAGEMENT | CYBERCINEMA";
 
   useEffect(() => {
     dispatch(getUsersRequest());
   }, []);
+
+  useEffect(() => {
+    if (data) {
+      setUserList([...data]);
+    }
+  }, [data]);
+
+  const handleSearch = (e) => {
+    const { value } = e.target;
+    if (value.trim()) {
+      const filteredUserList = data.filter((user) => {
+        return user.hoTen.toUpperCase().indexOf(value.toUpperCase()) !== -1;
+      });
+      setUserList([...filteredUserList]);
+    } else {
+      setUserList([...data]);
+    }
+  };
 
   const handleDeleteUser = (username) => {
     if (window.confirm("Are you sure?")) {
@@ -46,7 +65,7 @@ const Users = () => {
   } else {
     return (
       <section className="container mt-5 pt-3">
-        <input type="text" className="form-control mb-1" placeholder="Search..." />
+        <input type="text" className="form-control mb-1" placeholder="Search..." onChange={handleSearch} />
         <button className="btn btn-primary w-100 mb-1" onClick={() => navigate("new")}>
           + ADD USER
         </button>
@@ -63,20 +82,17 @@ const Users = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((user) => {
+              {userList?.map((user) => {
                 return (
                   <tr key={user.taiKhoan} className="align-middle" scope="row">
                     <td>{user.taiKhoan}</td>
                     <td>{user.hoTen}</td>
                     <td>{user.email}</td>
-                    <td>{user.soDT}</td>
+                    <td>{user.soDT || user.soDt}</td>
                     <td>{user.maLoaiNguoiDung}</td>
                     <td>
-                      <Button className="text-primary" onClick={() => navigate(`edit/${user.taiKhoan}`)}>
+                      <Button className="text-primary mr-2" onClick={() => navigate(`edit/${user.taiKhoan}`)}>
                         <i className="fa-solid fa-pen-to-square" />
-                      </Button>
-                      <Button className="text-warning mx-2">
-                        <i className="fa-solid fa-calendar-days" />
                       </Button>
                       <Button className="text-danger" onClick={() => handleDeleteUser(user.taiKhoan)}>
                         <i className="fa-solid fa-trash" />

@@ -12,7 +12,7 @@ export const addUserRequest = (user, navigate) => {
           navigate(-1, { replace: true });
         }
       })
-      .catch((error) => dispatch(actAddUserFail(error.response.content)));
+      .catch((error) => dispatch(actAddUserFail(error.response.data.content)));
   };
 };
 
@@ -38,14 +38,34 @@ export const updateUserRequest = (user, navigate) => {
   return (dispatch) => {
     dispatch(actUpdateUserRequest());
     api
-      .put("QuanLyNguoiDung/CapNhatThongTinNguoiDung", user)
+      .post("QuanLyNguoiDung/CapNhatThongTinNguoiDung", user)
       .then((result) => {
         dispatch(actUpdateUserSuccess(result.data.content));
         if (window.confirm("Successfully!")) {
-          navigate(-1, { replace: true });
+          if (JSON.parse(localStorage.getItem("admin-account")).taiKhoan === user.taiKhoan) {
+            localStorage.removeItem("admin-account");
+
+            api
+              .post("QuanLyNguoiDung/DangNhap", { taiKhoan: user.taiKhoan, matKhau: user.matKhau })
+              .then((result) => {
+                const user = result.data.content;
+                if (user.maLoaiNguoiDung === "KhachHang") {
+                  navigate(0);
+                } else {
+                  localStorage.setItem("admin-account", JSON.stringify(user));
+                  navigate(-1, { replace: true });
+                }
+                if (user.maLoaiNguoiDung !== "QuanTri") {
+                  navigate(0);
+                }
+              })
+              .catch((error) => dispatch(actUpdateUserFail(error.response.data.content)));
+          } else {
+            navigate(-1, { replace: true });
+          }
         }
       })
-      .catch((error) => console.log(error.response));
+      .catch((error) => dispatch(actUpdateUserFail(error.response.data.content)));
   };
 };
 

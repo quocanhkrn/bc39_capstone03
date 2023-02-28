@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { addUserRequest, updateUserRequest } from "./_duck/actions";
 import { useEffect } from "react";
@@ -21,6 +21,13 @@ const UserForm = () => {
     maLoaiNguoiDung: "KhachHang",
     hoTen: "",
   });
+
+  const {
+    AddUserReducer: { loading: addLoading, error: addError },
+    UpdateUserReducer: { loading: updateLoading, error: updateError },
+  } = useSelector((state) => state.AdminUserReducer);
+
+  let loading, error;
 
   useEffect(() => {
     if (username) {
@@ -55,6 +62,7 @@ const UserForm = () => {
         UPDATE
       </button>
     );
+    [loading, error] = [updateLoading, updateError];
   } else {
     document.title = "NEW USER | CYBERCINEMA";
     submitBtn.current = (
@@ -63,12 +71,23 @@ const UserForm = () => {
         ADD
       </button>
     );
+    [loading, error] = [addLoading, addError];
   }
 
   return (
     <section className="container mt-5 pt-3">
       <form onSubmit={handleSubmit}>
         <h2>{username ? "UPDATE" : "NEW"}</h2>
+        {loading ? (
+          <section className="container d-flex justify-content-center mt-5 pt-5">
+            <div className="spinner-border text-primary" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          </section>
+        ) : (
+          ""
+        )}
+        <div className={error ? "alert alert-danger" : ""}>{error}</div>
         <div className="form-group row no-gutters">
           <label className="col-12 col-md-2 col-form-label mr-2 text-md-right">Username</label>
           <div className="col">
@@ -96,7 +115,7 @@ const UserForm = () => {
         <div className="form-group row no-gutters">
           <label className="col-12 col-md-2 col-form-label mr-2 text-md-right">Phone number</label>
           <div className="col">
-            <input type="text" className="form-control" required name="soDt" value={user.soDt || user.soDT} onChange={handleOnChange} />
+            <input type="text" className="form-control" required name="soDT" value={user.soDt || user.soDT} onChange={handleOnChange} />
           </div>
         </div>
         <div className="row no-gutters mb-3">
