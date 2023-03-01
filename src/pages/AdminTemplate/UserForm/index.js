@@ -95,7 +95,15 @@ const UserForm = () => {
         <div className="form-group row no-gutters">
           <label className="col-12 col-md-2 col-form-label mr-2 text-md-right">Username</label>
           <div className="col">
-            <input type="text" className="form-control" required name="taiKhoan" value={user.taiKhoan} onChange={handleOnChange} />
+            <input
+              type="text"
+              className="form-control"
+              required
+              disabled={username}
+              name="taiKhoan"
+              value={user.taiKhoan}
+              onChange={handleOnChange}
+            />
           </div>
         </div>
         <div className="form-group row no-gutters">

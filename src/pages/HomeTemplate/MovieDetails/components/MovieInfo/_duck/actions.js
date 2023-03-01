@@ -10,7 +10,7 @@ export const movieInfoFetchData = (movieId) => {
         dispatch(actMovieInfoSuccess(result.data.content));
       })
       .catch((error) => {
-        dispatch(actMovieInfoFail(error));
+        dispatch(actMovieInfoFail(error.response.data.content));
       });
   };
 };

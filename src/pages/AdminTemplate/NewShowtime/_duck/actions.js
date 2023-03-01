@@ -4,12 +4,15 @@ import * as TYPES from "./types";
 export const addShowtimeRequest = (showtime, navigate) => {
   return (dispatch) => {
     dispatch(actAddShowtimeRequest());
-    api.post("QuanLyDatVe/TaoLichChieu", showtime).then((result) => {
-      dispatch(actAddShowtimeSuccess(result.data.content));
-      if (window.confirm("Successfully created a new showtime!")) {
-        navigate(-1, { replace: true });
-      }
-    });
+    api
+      .post("QuanLyDatVe/TaoLichChieu", showtime)
+      .then((result) => {
+        dispatch(actAddShowtimeSuccess(result.data.content));
+        if (window.confirm("Successfully created a new showtime!")) {
+          navigate(-1, { replace: true });
+        }
+      })
+      .catch((error) => dispatch(actAddShowtimeFail(error.response.data.content)));
   };
 };
 

@@ -57,6 +57,7 @@ function Showtimes(props) {
         <div className="col px-0 py-1 px-md-1 py-md-0 mt-md-2">
           <button
             className="btn btn-warning w-100"
+            disabled={!opts.lichChieu}
             onClick={() => {
               navigate(`/reservation/${opts.lichChieu}`);
             }}>

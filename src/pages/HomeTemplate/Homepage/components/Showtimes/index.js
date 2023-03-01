@@ -76,6 +76,7 @@ function Showtimes() {
         <div className="col-12 col-md-4 px-0 py-1 px-md-1 py-md-1">
           <button
             className="btn btn-warning w-100"
+            disabled={!opts.lichChieu}
             onClick={() => {
               navigate(`/reservation/${opts.lichChieu}`);
             }}>

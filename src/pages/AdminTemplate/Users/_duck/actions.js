@@ -7,7 +7,7 @@ export const getUsersRequest = () => {
     api
       .get("QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP03")
       .then((result) => dispatch(actGetUsersSuccess(result.data.content)))
-      .catch((error) => dispatch(actGetUsersFail(error)));
+      .catch((error) => dispatch(actGetUsersFail(error.response.data.content)));
   };
 };
 

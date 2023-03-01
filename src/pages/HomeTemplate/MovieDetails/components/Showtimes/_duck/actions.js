@@ -58,7 +58,7 @@ export const movieShowtimesFetchData = (movieId) => {
         dispatch(actMovieShowtimesSuccess(heThongRapChieuClone));
       })
       .catch((error) => {
-        dispatch(actMovieShowtimesFail(error));
+        dispatch(actMovieShowtimesFail(error.response.data.content));
       });
   };
 };

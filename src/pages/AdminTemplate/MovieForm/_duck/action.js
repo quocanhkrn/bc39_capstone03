@@ -45,7 +45,9 @@ export const updateMovieRequest = (movie, navigate) => {
           navigate(-1, { replace: true });
         }
       })
-      .catch((error) => dispatch(actUpdateMovieFail(error.response.data.content)));
+      .catch((error) => {
+        dispatch(actUpdateMovieFail(error.response.data.content));
+      });
   };
 };
 

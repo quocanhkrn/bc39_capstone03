@@ -10,7 +10,7 @@ export const HomeCarouselFetchData = () => {
         dispatch(actHomeCarouselSuccess(result.data.content));
       })
       .catch((error) => {
-        dispatch(actHomeCarouselFail(error));
+        dispatch(actHomeCarouselFail(error.response.data.content));
       });
   };
 };

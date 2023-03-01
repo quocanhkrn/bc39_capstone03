@@ -63,7 +63,7 @@ export const showtimesFetchData = () => {
                 phim.heThongRap = heThongRap;
               });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => dispatch(actShowtimesFail(error.response.data.content)));
         });
       })
       .then(() => {

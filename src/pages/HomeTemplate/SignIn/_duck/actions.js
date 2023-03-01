@@ -8,9 +8,7 @@ export const logInSendRequest = (user, navigate) => {
       .post("QuanLyNguoiDung/DangNhap", user)
       .then((result) => {
         const user = result.data.content;
-        if (result.data.content.maLoaiNguoiDung === "QuanTri") {
-          localStorage.setItem("admin-account", JSON.stringify(user));
-        }
+        localStorage.removeItem("admin-account");
         localStorage.setItem("guest-account", JSON.stringify(user));
         navigate(-1, { replace: true });
       })

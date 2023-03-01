@@ -125,6 +125,9 @@ const MovieForm = () => {
       }
     }
     if (movie.hinhAnhBlob) movieFormData.append("hinhAnh", movie.hinhAnhBlob, movie.hinhAnh);
+    for (const [key, value] of movieFormData) {
+      console.log(key, value);
+    }
     if (movieId) {
       dispatch(updateMovieRequest(movieFormData, navigate));
     } else {

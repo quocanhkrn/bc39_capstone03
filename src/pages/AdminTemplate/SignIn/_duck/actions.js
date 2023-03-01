@@ -18,6 +18,7 @@ export const SignInRequest = (navigate, user) => {
             },
           });
         } else {
+          localStorage.removeItem("guest-account");
           localStorage.setItem("admin-account", JSON.stringify(user));
           navigate("/admin/movies", { replace: true });
         }

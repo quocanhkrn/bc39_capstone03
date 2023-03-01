@@ -10,7 +10,7 @@ export const homeMovieListFetchData = () => {
         dispatch(actHomeMovieListSuccess(result.data.content));
       })
       .catch((error) => {
-        dispatch(actHomeMovieListFail(error));
+        dispatch(actHomeMovieListFail(error.response.data.content));
       });
   };
 };

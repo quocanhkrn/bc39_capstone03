@@ -9,7 +9,7 @@ export const getMoviesRequest = () => {
       .then((result) => {
         dispatch(actGetMoviesSuccess(result.data.content));
       })
-      .catch((error) => dispatch(actGetMoviesFail(error)));
+      .catch((error) => dispatch(actGetMoviesFail(error.response.data.content)));
   };
 };
 
