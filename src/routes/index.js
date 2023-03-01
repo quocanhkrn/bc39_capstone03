@@ -31,6 +31,7 @@ const routes = [
       { path: "movies", element: lazy(() => import("pages/AdminTemplate/Movies")) },
       { path: "movies/new", element: lazy(() => import("pages/AdminTemplate/MovieForm")) },
       { path: "movies/edit/:id", element: lazy(() => import("pages/AdminTemplate/MovieForm")) },
+      { path: "movies/new-showtime/:id", element: lazy(() => import("pages/AdminTemplate/NewShowtime")) },
       { path: "users", element: lazy(() => import("pages/AdminTemplate/Users")) },
       { path: "users/new", element: lazy(() => import("pages/AdminTemplate/UserForm")) },
       { path: "users/edit/:username", element: lazy(() => import("pages/AdminTemplate/UserForm")) },

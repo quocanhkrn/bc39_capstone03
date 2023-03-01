@@ -101,7 +101,7 @@ const Movies = () => {
                       <Button className="text-primary" onClick={() => navigate(`edit/${movie.maPhim}`)}>
                         <i className="fa-solid fa-pen-to-square" />
                       </Button>
-                      <Button className="text-warning mx-2">
+                      <Button className="text-warning mx-2" onClick={() => navigate(`new-showtime/${movie.maPhim}`)}>
                         <i className="fa-solid fa-calendar-days" />
                       </Button>
                       <Button
