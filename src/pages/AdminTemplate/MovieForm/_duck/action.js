@@ -1,32 +1,68 @@
 import api from "utils/apiUtil";
 import * as TYPES from "./types";
 
-export const getMovieInfoRequest = (movieId) => {
+export const addMovieRequest = (movie, navigate) => {
   return (dispatch) => {
-    dispatch(actGetMovieInfoRequest());
+    dispatch(actAddMovieRequest());
     api
-      .get(`QuanLyPhim/LayThongTinPhim?MaPhim=${movieId}`)
+      .post("QuanLyPhim/ThemPhimUploadHinh", movie)
       .then((result) => {
-        dispatch(actGetMovieInfoSuccess(result.data.content));
+        dispatch(actAddMovieSuccess(result.data.content));
+        if (window.confirm("Successfully added!")) {
+          navigate(-1, { replace: true });
+        }
       })
-      .catch((error) => dispatch(actGetMovieInfoFail(error)));
+      .catch((error) => dispatch(actAddMovieFail(error.response.data.content)));
   };
 };
 
-export const actGetMovieInfoRequest = () => {
-  return { type: TYPES.GET_MOVIE_INFO_REQUEST };
+const actAddMovieRequest = () => {
+  return { type: TYPES.ADD_MOVIE_REQUEST };
 };
 
-export const actGetMovieInfoSuccess = (data) => {
+export const actAddMovieSuccess = (data) => {
   return {
-    type: TYPES.GET_MOVIE_INFO_SUCCESS,
+    type: TYPES.ADD_MOVIE_SUCCESS,
     payload: data,
   };
 };
 
-export const actGetMovieInfoFail = (error) => {
+const actAddMovieFail = (error) => {
   return {
-    type: TYPES.GET_MOVIE_INFO_FAIL,
+    type: TYPES.ADD_MOVIE_FAIL,
+    payload: error,
+  };
+};
+
+export const updateMovieRequest = (movie, navigate) => {
+  return (dispatch) => {
+    dispatch(actUpdateMovieRequest());
+    api
+      .post("QuanLyPhim/CapNhatPhimUpload", movie)
+      .then((result) => {
+        dispatch(actUpdateMovieSuccess(result.data.content));
+        if (window.confirm("Successfully updated!")) {
+          navigate(-1, { replace: true });
+        }
+      })
+      .catch((error) => dispatch(actUpdateMovieFail(error.response.data.content)));
+  };
+};
+
+const actUpdateMovieRequest = () => {
+  return { type: TYPES.UPDATE_MOVIE_REQUEST };
+};
+
+export const actUpdateMovieSuccess = (data) => {
+  return {
+    type: TYPES.UPDATE_MOVIE_SUCCESS,
+    payload: data,
+  };
+};
+
+const actUpdateMovieFail = (error) => {
+  return {
+    type: TYPES.UPDATE_MOVIE_FAIL,
     payload: error,
   };
 };

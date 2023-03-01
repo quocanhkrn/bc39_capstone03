@@ -20,7 +20,7 @@ const actAddUserRequest = () => {
   return { type: TYPES.ADD_USER_REQUEST };
 };
 
-const actAddUserSuccess = (data) => {
+export const actAddUserSuccess = (data) => {
   return {
     type: TYPES.ADD_USER_SUCCESS,
     payload: data,
@@ -73,7 +73,7 @@ const actUpdateUserRequest = () => {
   return { type: TYPES.UPDATE_USER_REQUEST };
 };
 
-const actUpdateUserSuccess = (data) => {
+export const actUpdateUserSuccess = (data) => {
   return {
     type: TYPES.UPDATE_USER_SUCCESS,
     payload: data,

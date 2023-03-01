@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMoviesRequest } from "./_duck/actions";
@@ -23,10 +23,15 @@ const Movies = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, data, error } = useSelector((state) => state.AdminMovieListReducer);
+  const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
     dispatch(getMoviesRequest());
   }, []);
+
+  useEffect(() => {
+    if (data) setMovieList([...data]);
+  }, [data]);
 
   const handleDeleteMovie = (movieId) => {
     if (window.confirm("Are you sure?")) {
@@ -35,6 +40,19 @@ const Movies = () => {
         .then((result) => dispatch(getMoviesRequest()))
         .catch((error) => console.log(error));
     }
+  };
+
+  const handleSearchMovie = (e) => {
+    const { value: keyword } = e.target;
+    let filteredMovieList = new Array();
+    if (keyword.trim()) {
+      filteredMovieList = [...data].filter((movie) => {
+        return movie.tenPhim.toUpperCase().indexOf(keyword.toUpperCase()) !== -1;
+      });
+    } else {
+      filteredMovieList = [...data];
+    }
+    setMovieList([...filteredMovieList]);
   };
 
   document.title = "MOVIES MANAGEMENT | CYBERCINEMA";
@@ -50,7 +68,7 @@ const Movies = () => {
   } else {
     return (
       <section className="container mt-5 pt-3">
-        <input type="text" className="form-control mb-1" placeholder="Search..." />
+        <input type="text" className="form-control mb-1" placeholder="Search..." onChange={handleSearchMovie} />
         <button className="btn btn-primary w-100 mb-1" onClick={() => navigate("new")}>
           + ADD MOVIE
         </button>
@@ -66,7 +84,7 @@ const Movies = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((movie) => {
+              {movieList.map((movie) => {
                 return (
                   <tr key={movie.maPhim}>
                     <td className="align-middle" scope="row">

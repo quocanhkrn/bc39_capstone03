@@ -1,3 +1,7 @@
-export const GET_MOVIE_INFO_REQUEST = "@adminGetMovieInfoReducer/GET_MOVIE_INFO_REQUEST";
-export const GET_MOVIE_INFO_SUCCESS = "@adminGetMovieInfoReducer/GET_MOVIE_INFO_SUCCESS";
-export const GET_MOVIE_INFO_FAIL = "@adminGetMovieInfoReducer/GET_MOVIE_INFO_FAIL";
+export const ADD_MOVIE_REQUEST = "@adminMovieReducer/ADD_MOVIE_REQUEST";
+export const ADD_MOVIE_SUCCESS = "@adminMovieReducer/ADD_MOVIE_SUCCESS";
+export const ADD_MOVIE_FAIL = "@adminMovieReducer/ADD_MOVIE_FAIL";
+
+export const UPDATE_MOVIE_REQUEST = "@adminMovieReducer/UPDATE_MOVIE_REQUEST";
+export const UPDATE_MOVIE_SUCCESS = "@adminMovieReducer/UPDATE_MOVIE_SUCCESS";
+export const UPDATE_MOVIE_FAIL = "@adminMovieReducer/UPDATE_MOVIE_FAIL";

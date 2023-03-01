@@ -2,9 +2,10 @@ import React, { useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { addUserRequest, updateUserRequest } from "./_duck/actions";
+import { actAddUserSuccess, actUpdateUserSuccess, addUserRequest, updateUserRequest } from "./_duck/actions";
 import { useEffect } from "react";
 import api from "utils/apiUtil";
+import { actAddMovieSuccess } from "../MovieForm/_duck/action";
 
 const UserForm = () => {
   const navigate = useNavigate();
@@ -31,10 +32,13 @@ const UserForm = () => {
 
   useEffect(() => {
     if (username) {
+      dispatch(actUpdateUserSuccess(null));
       api
         .post(`QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${username}`)
         .then((result) => setUser(result.data.content))
         .catch((error) => console.log(error));
+    } else {
+      dispatch(actAddUserSuccess(null));
     }
   }, [username]);
 
@@ -79,7 +83,7 @@ const UserForm = () => {
       <form onSubmit={handleSubmit}>
         <h2>{username ? "UPDATE" : "NEW"}</h2>
         {loading ? (
-          <section className="container d-flex justify-content-center mt-5 pt-5">
+          <section className="container d-flex justify-content-center mt-3">
             <div className="spinner-border text-primary" role="status">
               <span className="sr-only">Loading...</span>
             </div>
