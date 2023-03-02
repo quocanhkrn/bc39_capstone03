@@ -21,7 +21,7 @@ function Seats(props) {
   }
 
   const generateSeatBtnClass = (seat) => {
-    let className = ["seat"];
+    let className = ["seat", seat.maGhe];
     className.push("rounded");
     if (seat.loaiGhe === "Vip") {
       className.push("vip");
@@ -68,6 +68,8 @@ function Seats(props) {
   };
 
   const unchooseSeat = (maGhe) => {
+    document.getElementById(maGhe).classList.remove("choosing");
+
     const index = ticketInfo.current.danhSachVe.findIndex((ve) => ve.maGhe === maGhe);
 
     ticketInfo.current.danhSachVe.splice(index, 1);
@@ -139,6 +141,7 @@ function Seats(props) {
                   return (
                     <td key={seat.maGhe}>
                       <button
+                        id={seat.maGhe}
                         className={generateSeatBtnClass(seat)}
                         onClick={(e) => {
                           if (!seat.daDat) {
